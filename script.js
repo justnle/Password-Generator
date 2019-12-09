@@ -5,7 +5,7 @@ var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 var upperArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var selectedArr = [];
 var userPasswordArr = [];
-var merged = [];
+var mergedArr = [];
 var passLength = 0;
 var userPassword = '';
 
@@ -48,22 +48,22 @@ function selectedCharacters() {
         alert('You must select at least one character type.');
     }
 
-    merged = [].concat.apply([], selectedArr);
+    mergedArr = [].concat.apply([], selectedArr);
 
-    getArr(merged);
+    randomizedChars(merged);
 }
 
 function passReset() {
     userPasswordArr.length = 0;
-    merged.length = 0;
+    mergedArr.length = 0;
     selectedArr.length = 0;
 }
 
-function getArr(mergedArr) {
+function randomizedChars(merged) {
     for (var i = 0; i < passLength; i++) {
-        var randomChar = Math.floor(Math.random() * mergedArr.length);
+        var randomChar = Math.floor(Math.random() * merged.length);
 
-        userPasswordArr.push(mergedArr[randomChar]);
+        userPasswordArr.push(merged[randomChar]);
         userPassword = userPasswordArr.join('');
     }
 }
