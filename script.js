@@ -5,11 +5,12 @@ var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 var upperArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var selectedArr = [];
 var userPasswordArr = [];
+var merged = [];
 var passLength = 0;
 var userPassword = '';
 
 function genPassword() {
-    passwordReset();
+    passReset();
 
     passLength = prompt('Choose a password length between 8 and 128 characters.');
 
@@ -47,13 +48,15 @@ function selectedCharacters() {
         alert('You must select at least one character type.');
     }
 
-    var merged = [].concat.apply([], selectedArr);
+    merged = [].concat.apply([], selectedArr);
 
     getArr(merged);
 }
 
-function passwordReset() {
+function passReset() {
     userPasswordArr.length = 0;
+    merged.length = 0;
+    selectedArr.length = 0;
 }
 
 function getArr(mergedArr) {
