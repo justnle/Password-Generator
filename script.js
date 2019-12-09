@@ -37,12 +37,16 @@ function selectedCharacters() {
     var lowerYes = confirm('Click OK to include lowercase characters in your password.');
     if (lowerYes === true) {
         selectedArr.push(lowerArr);
-    } 
+    }
     var upperYes = confirm('Click OK to include uppercase characters in your password.');
     if (upperYes === true) {
         selectedArr.push(upperArr);
     }
-    
+
+    if (upperYes === false && lowerYes === false && numericYes === false && specialYes === false) {
+        alert('You must select at least one character type.');
+    }
+
     var merged = [].concat.apply([], selectedArr);
 
     getArr(merged);
@@ -60,4 +64,8 @@ function getArr(mergedArr) {
         userPasswordArr.push(mergedArr[randomChar]);
         userPassword = userPasswordArr.join('');
     }
+}
+
+function copyPassword() {
+    alert('Your password: ' + userPassword + ' has been copied to the clipboard.');
 }
