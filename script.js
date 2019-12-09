@@ -19,7 +19,6 @@ function genPassword() {
         alert('A password will not be generated.');
     } else {
         selectedCharacters();
-        console.log(userPassword);
     }
 
     document.getElementById('password-form').textContent = userPassword;
@@ -27,6 +26,7 @@ function genPassword() {
 
 function selectedCharacters() {
     var specialYes = confirm('Click OK to include special characters in your password.');
+
     if (specialYes === true) {
         selectedArr.push(specialArr);
     }
@@ -50,8 +50,6 @@ function selectedCharacters() {
     var merged = [].concat.apply([], selectedArr);
 
     getArr(merged);
-
-    console.log(userPassword);
 }
 
 function passwordReset() {
@@ -61,6 +59,7 @@ function passwordReset() {
 function getArr(mergedArr) {
     for (var i = 0; i < passLength; i++) {
         var randomChar = Math.floor(Math.random() * mergedArr.length);
+
         userPasswordArr.push(mergedArr[randomChar]);
         userPassword = userPasswordArr.join('');
     }
@@ -68,6 +67,7 @@ function getArr(mergedArr) {
 
 function copyPassword() {
     var emptyEl = document.getElementById('password-form').innerHTML;
+
     if (emptyEl === '') {
         alert('You have not yet generated a password.');
     } else {
