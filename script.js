@@ -67,5 +67,12 @@ function getArr(mergedArr) {
 }
 
 function copyPassword() {
-    alert('Your password: ' + userPassword + ' has been copied to the clipboard.');
+    var emptyEl = document.getElementById('password-form').innerHTML;
+    if (emptyEl === '') {
+        alert('You have not yet generated a password.');
+    } else {
+        document.getElementById('password-form').select();
+        document.execCommand('copy');
+        alert('Your password: ' + userPassword + ' has been copied to the clipboard.');
+    }
 }
