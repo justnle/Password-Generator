@@ -50,7 +50,7 @@ function selectedCharacters() {
 
     mergedArr = [].concat.apply([], selectedArr);
 
-    randomizedChars(merged);
+    randomizedChars(mergedArr);
 }
 
 function passReset() {
