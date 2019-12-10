@@ -12,18 +12,17 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid main-content">
         <div class="row justify-content-center">
             <div class="text-center col-md-12 bg-dark text-light">
                 <h1 class="font-weight-bold">Password Generator</h1>
             </div>
-
-            <div class="col-md-8 bg-light my-2 border rounded-sm">
+            <div class="col-md-8 bg-light my-4 border rounded-sm mx-2">
                 <h3 class="py-2 border-bottom">Generate a password</h3>
                 <div class="row text-center pt-2">
                     <div class="col-md-12">
-                        <textarea class="form-control text-center" id="password-form"
-                            placeholder="Your Secure Password" rows="3" readonly></textarea>
+                        <textarea class="form-control text-center" id="password-form" placeholder="Your Secure Password"
+                            rows="3" readonly></textarea>
                     </div>
                 </div>
                 <div class="row text-center py-3">
@@ -32,7 +31,8 @@
                             Password</button>
                     </div>
                     <div class="col-6">
-                        <button type="button" class="btn btn-lg btn-secondary" onclick="copyPassword()">Copy to Clipboard</button>
+                        <button type="button" class="btn btn-lg btn-secondary" onclick="copyPassword()">Copy to
+                            Clipboard</button>
                     </div>
                 </div>
             </div>
@@ -40,8 +40,10 @@
 
     </div>
 
-    <footer class="text-center">
-        <small>Copyright &copy; 2019 Justin Le</small>
+    <footer class="footer text-center py-3 bg-dark sticky-footer">
+        <div class="container">
+            <span class="text-muted">Copyright &copy; 2019 Justin Le</span>
+        </div>
     </footer>
 
 
