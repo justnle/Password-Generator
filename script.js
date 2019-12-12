@@ -4,7 +4,6 @@ var numericArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upperArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var selectedArr = [];
-// var userPasswordArr = [];
 var requiredArr = [];
 var mergedArr = [];
 var passLength = 0;
@@ -12,9 +11,7 @@ var userPassword = '';
 
 function genPassword() {
     passReset();
-
     passLength = prompt('Choose a password length between 8 and 128 characters.');
-
     if (parseInt(passLength) < 8 || parseInt(passLength) > 128) {
         alert('Invalid length. Please choose a length between 8 and 128 characters.');
     } else if (passLength === null) {
@@ -24,53 +21,34 @@ function genPassword() {
     } else {
         selectedCharacters();
     }
-
     document.getElementById('password-form').textContent = userPassword;
 }
 
 function selectedCharacters() {
     var specialYes = confirm('Click OK to include special characters in your password.');
-
     if (specialYes === true) {
-        // var required = Math.floor(Math.random() * specialArr.length);
-        // requiredArr.push(specialArr[required]);
-        // selectedArr.push(specialArr);
         selectedOption(specialArr);
     }
     var numericYes = confirm('Click OK to include numerical characters in your password.');
     if (numericYes === true) {
-        // var required = Math.floor(Math.random() * numericArr.length);
-        // requiredArr.push(numericArr[required]);
-        // selectedArr.push(numericArr);
         selectedOption(numericArr);
     }
     var lowerYes = confirm('Click OK to include lowercase characters in your password.');
     if (lowerYes === true) {
-        // var required = Math.floor(Math.random() * lowerArr.length);
-        // requiredArr.push(lowerArr[required]);
-        // selectedArr.push(lowerArr);
         selectedOption(lowerArr);
     }
     var upperYes = confirm('Click OK to include uppercase characters in your password.');
     if (upperYes === true) {
-        // var required = Math.floor(Math.random() * upperArr.length);
-        // requiredArr.push(upperArr[required]);
-        // selectedArr.push(upperArr);
         selectedOption(upperArr);
     }
-
     if (upperYes === false && lowerYes === false && numericYes === false && specialYes === false) {
         alert('You must select at least one character type.');
     }
-
     mergedArr = [].concat.apply([], selectedArr);
-
-    // randomizedChars(mergedArr);
     requiredChars(mergedArr);
 }
 
 function passReset() {
-    // userPasswordArr.length = 0;
     mergedArr.length = 0;
     selectedArr.length = 0;
     requiredArr.length = 0;
@@ -82,29 +60,18 @@ function selectedOption(chosen) {
     selectedArr.push(chosen);
 }
 
-// function randomizedChars(merged) {
-//     for (var i = 0; i < passLength; i++) {
-//         var randomChar = Math.floor(Math.random() * merged.length);
-//         userPasswordArr.push(merged[randomChar]);
-//         userPassword = userPasswordArr.join('');
-//     }
-// }
-
 function requiredChars(merged) {
     var newLength = passLength - requiredArr.length;
-
     for (var i = 0; i < newLength; i++) {
         var randomChar = Math.floor(Math.random() * merged.length);
         requiredArr.push(merged[randomChar]);
     }
     shuffle(requiredArr);
     userPassword = requiredArr.join('');
-    console.log(userPassword);
 }
 
 function copyPassword() {
     var emptyEl = document.getElementById('password-form').innerHTML;
-
     if (emptyEl === '') {
         alert('You have not yet generated a password.');
     } else {
@@ -114,7 +81,6 @@ function copyPassword() {
     }
 }
 
-// make sure at least one of every required character is utilized in the password...
 function shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
