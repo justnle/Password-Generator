@@ -5,6 +5,7 @@ var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 var upperArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var selectedArr = [];
 var requiredArr = [];
+var mergedArr = [];
 var passLength = 0;
 var userPassword = '';
 
@@ -48,6 +49,7 @@ function selectedCharacters() {
 }
 
 function passReset() {
+    mergedArr.length = 0;
     selectedArr.length = 0;
     requiredArr.length = 0;
 }
