@@ -1,7 +1,7 @@
 # Password Generator
 This is a password generator web page that is primarily built using JavaScript. In Week 3 and 4 of the UW Coding Boot Camp, we focused on JavaScript and Web APIs, learning how to create JavaScript functions and integrate it into our page through the DOM. The page is minimally styled using the Bootstrap framework that was introduced to the students in Week 2.
 
-[Password Generator Page](https://github.com/twopcz/HW-3)
+<a href="https://twopcz.github.io/HW-3/" target="_blank">Password Generator Page</a>
 
 ![password-generator-pic](https://github.com/twopcz/twopcz.github.io/blob/master/Images/pw-gen.png?raw=true)
 
