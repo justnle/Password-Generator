@@ -9,7 +9,10 @@ var mergedArr = [];
 var passLength = 0;
 var userPassword = '';
 
-function genPassword() {
+var genPasswordButton = document.querySelector('#generateButton');
+var copyPasswordButton = document.querySelector('#copyButton');
+
+genPasswordButton.addEventListener('click', function() {
     passReset();
     passLength = prompt('Choose a password length between 8 and 128 characters.');
     if (parseInt(passLength) < 8 || parseInt(passLength) > 128) {
@@ -22,7 +25,7 @@ function genPassword() {
         selectedCharacters();
     }
     document.getElementById('password-form').textContent = userPassword;
-}
+});
 
 function selectedCharacters() {
     var specialYes = confirm('Click OK to include special characters in your password.');
@@ -70,7 +73,7 @@ function requiredChars(merged) {
     userPassword = requiredArr.join('');
 }
 
-function copyPassword() {
+copyPasswordButton.addEventListener('click', function() {
     var emptyEl = document.getElementById('password-form').innerHTML;
     if (emptyEl === '') {
         alert('You have not yet generated a password.');
@@ -79,7 +82,7 @@ function copyPassword() {
         document.execCommand('copy');
         alert('Your password: ' + userPassword + ' has been copied to the clipboard.');
     }
-}
+});
 
 function shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
